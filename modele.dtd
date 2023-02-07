@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<!ELEMENT person (persName, nationality?, residence?, sex, socecStatus?, occupation?, note)>
+<!ELEMENT place (placeName, country, population?, region?, note?)>
+<!-- Ces deux éléments et leurs éléments enfants permettent de décrire succintement les personnages rencontrés et les régions traversées. L'élément note contient du texte libre destiné à apporter de la description plus nuancée, de ces entités; il est obligatoire pour les personnes afin de forcer à produire du contenu descriptif, mais optionnel pour les lieux, qui ne sont parfois que simplement évoqués -->
+<!ELEMENT opener (hi,title)>
+<!ELEMENT closer (signed,seg)>
+<!-- L'opener et le closer sont introduits et structurés afin de marquer une limite claire entre les éléments propres à l'édition en roman feuilleton (titre de la rubrique et rappel du titre du roman en opener, mention "à suivre" et la signature de Jules Verne en closer) et les éléments constitutifs du texte en lui-même. Une telle délimitation permet d'aisément cibler ces éléments afin de ne pas les retenir en cas d'édition numérique intégrale du roman feuilleton-->
+
+<!ATTLIST country key CDATA #IMPLIED>
+<!ATTLIST country ref CDATA #REQUIRED >
+<!--Cet élément se voit contraint d'inclure au moins une référence à Wikidata; en effet, les noms de lieux, les frontières et les régimes politiques peuvent avoir évolué depuis 1872 et la première publication du roman, aussi une référence à ces entités est-elle indispensable. L'attribut "key" est à appliquer lorsque l'on fait référence à un pays actuel, c'est à dire un pays possédant un code ISO -->
+<!ATTLIST date when-iso CDATA #IMPLIED>
+<!--Référencement des dates selon un format processable par une machine (norme ISO 8601)-->
+<!ATTLIST place type CDATA #REQUIRED>
+<!--Permet de mieux appréhender la nature des lieux rencontrés/évoqués dans le récit-->
+<!ATTLIST person id CDATA #REQUIRED>
+<!ATTLIST place id CDATA #REQUIRED>
+<!-- l'attribution d'un id pour les éléments person et place est rendu obligatoire, afin de contraindre le référencement dans le texte -->
+<!ATTLIST persName ref IDREF #REQUIRED>
+<!-- Une mention d'un IDREF dont l'ID est en particDesc est obligatoire; cela contraint à inclure le personnage dans le particDesc, et à justifier tout recours au persName dans le texte -->
+<!ATTLIST rs ref IDREF #REQUIRED>
+<!ATTLIST rs type CDATA #REQUIRED>
+<!-- Les attributs de rs permettent de 1) spécifier si l'on fait là une référence à un lieu ou une personne, et de 2) établir un lien de référence avec cette autorité-->
+<!ATTLIST said who IDREF #REQUIRED>
+<!ATTLIST said direct (true|false) #IMPLIED>
+<!ATTLIST said toWhom IDREF #IMPLIED>
+<!ATTLIST said aloud (true|false) #REQUIRED>
+<!-- Ces quatre derniers attributs permettent de donner plus de précision sur la nature des dialogues, de mieux les circonscrire, pour être en mesure de les étudier.  -->
