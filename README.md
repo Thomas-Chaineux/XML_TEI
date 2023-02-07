@@ -1,6 +1,10 @@
 # XML_TEI
 Encodage en XML-TEI du Tour du Monde en 80 jours, chapitre XIII, roman Feuilleton du Temps, 1872
 
+Cotraintes d'attributs:
+https://tei-c.org/release/doc/tei-p5-doc/en/html/TD.html#TDTAGCONS
+(22.5.2 Additional Constraints)
+
 Séquences d'éléments:
 https://tei-c.org/release/doc/tei-p5-doc/en/html/ref-sequence.html
 
