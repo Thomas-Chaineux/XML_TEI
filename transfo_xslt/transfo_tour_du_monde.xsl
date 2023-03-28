@@ -170,7 +170,7 @@
                         
                         <!-- LISTE DES PERSONNAGES -->
                         <div title="titre_intro">Présentation des personnages</div>
-                        <ol>
+                        
                             <xsl:for-each select="//particDesc//person"><!--Concaténation des éléments de noms des personnages, et lien wikidata si renseigné-->
                                 <div class="card">
                                     <xsl:for-each select=".">
@@ -220,12 +220,12 @@
                                     <p><xsl:value-of select="./note"/></p><!-- Reprise du texte présentant le personnage -->
                                 </div>
                             </xsl:for-each>
-                        </ol>
+                        
                         
                         
                         <!-- LIEUX RENCONTRES -->
                         <div title="titre_intro">Liste des lieux rencontrés</div>
-                        <ol>
+                        
                             <xsl:for-each select="//settingDesc//place">
                                 <div class="card">
                                     <xsl:for-each select=".">
@@ -270,7 +270,7 @@
                                     
                                     <p><xsl:value-of select="./note"/></p></div><!-- Reprise du texte présentant le lieu -->
                             </xsl:for-each>
-                        </ol>
+                        
                     </main>
                     <xsl:copy-of select="$footer"/>
                 </body>
@@ -374,7 +374,7 @@
                 <xsl:copy-of select="$head"/>
                 <body>                    
                     <xsl:copy-of select="$header"/>
-                    <main type="container">
+                    <main>
                         <div title="edition">Statistiques</div>
                         <p><i><xsl:text>Note: les "discours" sont définis par l'emploi des guillemets dans le texte édité.</xsl:text></i></p>
                         <xsl:for-each select="//particDesc//person">
